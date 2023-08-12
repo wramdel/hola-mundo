@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/corotiac/public_html/hola_mundo/
-    - /bin/cp -R . $DEPLOYPATH
+    - /bin/cp  index.html $DEPLOYPATH
