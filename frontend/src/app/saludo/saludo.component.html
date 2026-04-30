@@ -1,0 +1,36 @@
+<!-- Formulario simple: input + botón -->
+<div style="font-family: sans-serif; padding: 24px; max-width: 400px;">
+  <h2>Saludo</h2>
+
+  <!--
+    name="nombre": buena práctica cuando se usa ngModel,
+    evita warnings y conflictos si en el futuro se envuelve en un <form>.
+  -->
+  <input
+    type="text"
+    name="nombre"
+    [(ngModel)]="nombre"
+    placeholder="Escribe tu nombre"
+    style="padding: 8px; width: 100%; box-sizing: border-box;"
+  />
+
+  <!--
+    type="button": evita que el botón actúe como "submit" por defecto
+    (un <button> sin type dentro de un <form> recarga la página).
+  -->
+  <button
+    type="button"
+    (click)="enviar()"
+    style="margin-top: 8px; padding: 8px 16px; cursor: pointer;"
+  >
+    Enviar
+  </button>
+
+  <!--
+    respuesta es un signal: lo leemos llamándolo como función "respuesta()".
+    Así la vista se actualiza sola cuando cambia su valor.
+  -->
+  @if (respuesta()) {
+    <p style="margin-top: 16px; font-weight: bold;">{{ respuesta() }}</p>
+  }
+</div>
